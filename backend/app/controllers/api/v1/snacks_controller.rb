@@ -5,4 +5,5 @@ class Api::V1::SnacksController < ApplicationController
 
         render json: snacks
     end
+    
 end
