@@ -5,8 +5,8 @@ class VendingMachinesController < ApplicationController
   def index
     vending_machines = VendingMachine.all
 
-    render json: VendingMachineSerializer.new(vending_machines, {include: [:snacks]})
-    # render json: vending_machines
+    # render json: VendingMachineSerializer.new(vending_machines, {include: [:snacks]})
+    render json: vending_machines
   end
 
   # GET /vending_machines/1
