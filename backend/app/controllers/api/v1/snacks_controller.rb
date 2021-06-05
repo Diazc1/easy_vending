@@ -5,7 +5,8 @@ before_action :set_snack, only: [:show, :update, :destroy]
     def index
         snacks = Snack.all
 
-        render json: snacks
+        # render json: snacks
+        render json: SnackSerializer.new(snacks)
     end
 
     # GET /snacks/1
