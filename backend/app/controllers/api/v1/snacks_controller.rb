@@ -1,5 +1,5 @@
 class Api::V1::SnacksController < ApplicationController
-before_action :set_snack, only: [:show, :update, :destroy]
+    before_action :set_snack, only: [:show, :update, :destroy]
 
     # GET /snacks
     def index
