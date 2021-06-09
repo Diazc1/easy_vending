@@ -3,14 +3,150 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
     <title>Easy Vending</title>
 </head>
 <body>
-    <div id="snack-container">
 
+
+
+    <!-- <table class="table table-bordered border border-danger border border-3">
+        
+        <thead>
+            <tr>
+                <th>Location</th>
+                <th>Snack Name</th>
+                <th>Category</th>
+                <th>Beginning Inventory</th>
+                <th>Ending Inventory</th>
+                <th>Price</th>
+                <th>Profit</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td rowspan="3">Mall</td>
+                <td>Snickers</td>
+                <td>Chocolate</td>
+                <td>12</td>
+                <td>5</td>
+                <td>1.00</td>
+                <td>7.00</td>
+            </tr>
+            <tr>
+                <td>Skittles</td>
+                <td>Candy</td>
+                <td>12</td>
+                <td>3</td>
+                <td>1.25</td>
+                <td>11.25</td>
+            </tr>
+            <tr>
+                <td>Skittles</td>
+                <td>Candy</td>
+                <td>12</td>
+                <td>3</td>
+                <td>1.25</td>
+                <td>11.25</td>
+            </tr>
+        
+            
+            <tr>
+                <td rowspan="3">Hospital</td>
+                <td>Snickers</td>
+                <td>Chocolate</td>
+                <td>12</td>
+                <td>5</td>
+                <td>1.00</td>
+                <td>7.00</td>
+            </tr>
+            <tr>
+                <td>Skittles</td>
+                <td>Candy</td>
+                <td>12</td>
+                <td>3</td>
+                <td>1.25</td>
+                <td>11.25</td>
+            </tr>
+            <tr>
+                <td>Skittles</td>
+                <td>Candy</td>
+                <td>12</td>
+                <td>3</td>
+                <td>1.25</td>
+                <td>11.25</td>
+            </tr>
+
+            <tr>
+                <td rowspan="3">Office</td>
+                <td>Snickers</td>
+                <td>Chocolate</td>
+                <td>12</td>
+                <td>5</td>
+                <td>1.00</td>
+                <td>7.00</td>
+            </tr>
+            <tr>
+                <td>Skittles</td>
+                <td>Candy</td>
+                <td>12</td>
+                <td>3</td>
+                <td>1.25</td>
+                <td>11.25</td>
+            </tr>
+            <tr>
+                <td>Skittles</td>
+                <td>Candy</td>
+                <td>12</td>
+                <td>3</td>
+                <td>1.25</td>
+                <td>11.25</td>
+            </tr>
+        </tbody>
+    </table> -->
+
+    
+    
+
+    <div class="form-container">
+
+        <form id="create-snack-form" style="">
+        <h3>Create A New Snack!</h3>
+    
+        <input id='input-name' type="text" name="name" value="" placeholder="Enter snack name" class="input-text">
+        <br><br>
+        <input id='input-category' type="text" name="category" value="" placeholder="Enter category" class="input-text">
+        <br><br>
+        <input id='input-beginning_inventory' type="text" name="beginning_inventory" value="" placeholder="Enter the beginning inventory" class="input-text">
+        <br><br>
+        <input id='input-ending_inventory' type="text" name="ending_inventory" value="" placeholder="Enter the ending inventory" class="input-text">
+        <br><br>
+        <input id='input-price' type="text" name="price" value="" placeholder="Price of item" class="input-text">
+        <br><br>
+        <input id='input-profit' type="text" name="profit" value="" placeholder="Profit" class="input-text">
+        <br><br>
+    
+        <select id="vending_machines" name="vending_machines">
+            <option value="6">Hospital</option>
+            <option value="7">Mechanic Shop</option>
+            <option value="8">Office</option>
+        </select>
+        <br><br>
+    
+        <input id= 'create-button' type="submit" name="submit" value="Add Snack" class="submit">
+        </form>
+    
+    </div>
+
+    
+
+    <div id="snack-container">
     </div>
 
     <script src='index.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 </html>
 
