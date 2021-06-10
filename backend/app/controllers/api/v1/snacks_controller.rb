@@ -16,12 +16,12 @@ class Api::V1::SnacksController < ApplicationController
 
     # POST /snacks
     def create
-        snack = Snack.new(snack_params)
+        snack = Snack.new(snack_params) 
 
         if snack.save
-            render json: snack, status: :created, location: snack
+            render json: SnackSerializer.new(snack), status: :accepted
         else
-            render json: snack.errors, status: :unprocessable_entity
+            render json: {errors: snack.errors.full_messages}, status: :unprocessible_entity
         end
     end
 
