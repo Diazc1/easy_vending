@@ -14,26 +14,28 @@ function getSnacks() {
     .then(response => response.json())
     .then(snacks => {
         snacks.data.forEach(snack => {
-
-
-            const snackMarkup = `
-            <div data-id=${snack.id}>
-            <h3>${snack.attributes.vending_machine.location} (${snack.attributes.vending_machine.id})</h3>
-            Snack Name: <p>${snack.attributes.name}</p>
-            Category: <p>${snack.attributes.category}</p>
-            Beginning Inventory: <p>${snack.attributes.beginning_inventory}</p>
-            Ending Inventory: <p>${snack.attributes.ending_inventory}</p>
-            Price: <p>${snack.attributes.price}</p>
-            Profit: <p>${snack.attributes.profit}</p>
-            <button data-id=${snack.id}>edit</button>
-            </div>
-            <br><br>`;
-
-            document.querySelector('#snack-container').innerHTML += snackMarkup
+            render(snack)
         })
-
     })
 }
+
+
+function render(snack) {
+    const snackMarkup = `
+    <div data-id=${snack.id}>
+    <h3>${snack.attributes.vending_machine.location} (${snack.attributes.vending_machine.id})</h3>
+    Snack Name: <p>${snack.attributes.name}</p>
+    Category: <p>${snack.attributes.category}</p>
+    Beginning Inventory: <p>${snack.attributes.beginning_inventory}</p>
+    Ending Inventory: <p>${snack.attributes.ending_inventory}</p>
+    Price: <p>${snack.attributes.price}</p>
+    Profit: <p>${snack.attributes.profit}</p>
+    <button data-id=${snack.id}>edit</button>
+    </div>
+    <br><br>`;
+
+    document.querySelector('#snack-container').innerHTML += snackMarkup
+} 
 
 
 function createFormHandler(e) {
@@ -63,22 +65,24 @@ function postFetch(name, category, beginning_inventory, ending_inventory, price,
     .then(snack => {
         const snackData = snack.data.attributes
         // // render JSON response
-        const snackMarkup = `
-        <div data-id=${snack.id}>
+        render(snackData)
 
-        <h3>${snackData.vending_machine.location} (${snackData.vending_machine.id})</h3>
+        // const snackMarkup = `
+        // <div data-id=${snack.id}>
 
-        Snack Name: <p>${snackData.name}</p>
-        Category: <p>${snackData.category}</p>
-        Beginning Inventory: <p>${snackData.beginning_inventory}</p>
-        Ending Inventory: <p>${snackData.ending_inventory}</p>
-        Price: <p>${snackData.price}</p>
-        Profit: <p>${snackData.profit}</p>
-        <button data-id=${snack.id}>edit</button>
-        </div>
-        <br><br>`;
+        // <h3>${snackData.vending_machine.location} (${snackData.vending_machine.id})</h3>
 
-        document.querySelector('#snack-container').innerHTML += snackMarkup
+        // Snack Name: <p>${snackData.name}</p>
+        // Category: <p>${snackData.category}</p>
+        // Beginning Inventory: <p>${snackData.beginning_inventory}</p>
+        // Ending Inventory: <p>${snackData.ending_inventory}</p>
+        // Price: <p>${snackData.price}</p>
+        // Profit: <p>${snackData.profit}</p>
+        // <button data-id=${snack.id}>edit</button>
+        // </div>
+        // <br><br>`;
+
+        // document.querySelector('#snack-container').innerHTML += snackMarkup
     }) 
 }
 
