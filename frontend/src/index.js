@@ -14,6 +14,8 @@ function getSnacks() {
     .then(response => response.json())
     .then(snacks => {
         snacks.data.forEach(snack => {
+
+
             render(snack)
         })
     })
@@ -21,6 +23,7 @@ function getSnacks() {
 
 
 function render(snack) {
+    
     const snackMarkup = `
     <div data-id=${snack.id}>
     <h3>${snack.attributes.vending_machine.location} (${snack.attributes.vending_machine.id})</h3>
@@ -51,8 +54,9 @@ function createFormHandler(e) {
     postFetch(nameInput, categoryInput, beginning_inventoryInput, ending_inventoryInput, priceInput, profitInput, vending_machineId)
 }
 
+
+
 function postFetch(name, category, beginning_inventory, ending_inventory, price, profit, vending_machine_id) {
-    
     const bodyData = {name, category, beginning_inventory, ending_inventory, price, profit, vending_machine_id}
     
     fetch(endPoint, {
@@ -63,26 +67,23 @@ function postFetch(name, category, beginning_inventory, ending_inventory, price,
     })
     .then(response => response.json())
     .then(snack => {
-        const snackData = snack.data.attributes
-        // // render JSON response
-        render(snackData)
+    
+        const snackData = snack.data
 
-        // const snackMarkup = `
-        // <div data-id=${snack.id}>
-
-        // <h3>${snackData.vending_machine.location} (${snackData.vending_machine.id})</h3>
-
-        // Snack Name: <p>${snackData.name}</p>
-        // Category: <p>${snackData.category}</p>
-        // Beginning Inventory: <p>${snackData.beginning_inventory}</p>
-        // Ending Inventory: <p>${snackData.ending_inventory}</p>
-        // Price: <p>${snackData.price}</p>
-        // Profit: <p>${snackData.profit}</p>
-        // <button data-id=${snack.id}>edit</button>
-        // </div>
-        // <br><br>`;
-
-        // document.querySelector('#snack-container').innerHTML += snackMarkup
+        const snackMarkup = `
+        <div data-id=${snack.id}>
+        <h3>${snackData.attributes.vending_machine.location} (${snackData.attributes.vending_machine.id})</h3>
+        Snack Name: <p>${snackData.attributes.name}</p>
+        Category: <p>${snackData.attributes.category}</p>
+        Beginning Inventory: <p>${snackData.attributes.beginning_inventory}</p>
+        Ending Inventory: <p>${snackData.attributes.ending_inventory}</p>
+        Price: <p>${snackData.attributes.price}</p>
+        Profit: <p>${snackData.attributes.profit}</p>
+        <button data-id=${snackData.id}>edit</button>
+        </div>
+        <br><br>`;
+    
+        document.querySelector('#snack-container').innerHTML += snackMarkup
     }) 
 }
 
