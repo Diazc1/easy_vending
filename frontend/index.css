@@ -2,3 +2,11 @@ body {
     padding: 1rem;
     }
 
+
+
+.container {
+    column-count: 4;
+    column-gap: 20px;
+    column-rule: 4px dotted rgb(79, 185, 227);
+    }
+
