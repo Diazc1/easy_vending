@@ -25,6 +25,7 @@ function getSnacks() {
 function render(snack) {
     
     const snackMarkup = `
+    <div class="container">
     <div data-id=${snack.id}>
     <h3>${snack.attributes.vending_machine.location} (${snack.attributes.vending_machine.id})</h3>
     Snack Name: <p>${snack.attributes.name}</p>
@@ -34,6 +35,7 @@ function render(snack) {
     Price: <p>${snack.attributes.price}</p>
     Profit: <p>${snack.attributes.profit}</p>
     <button data-id=${snack.id}>edit</button>
+    </div>
     </div>
     <br><br>`;
 
