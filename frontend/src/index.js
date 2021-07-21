@@ -1,44 +1,47 @@
 const endPoint = "http://localhost:3000/api/v1/snacks"
 
 document.addEventListener('DOMContentLoaded', () => {
+    //fetch and load snacks
     getSnacks()
 
+    //event listener and handler for create sylabus form
     const createSnackForm = document.querySelector("#create-snack-form")
-
     createSnackForm.addEventListener("submit", (e) => createFormHandler(e))
 
 })
 
+
+// make request to the endpoint and then render data to DOM 
 function getSnacks() {
     fetch(endPoint)
     .then(response => response.json())
     .then(snacks => {
         snacks.data.forEach(snack => {
+            // render(snack)
+            // debugger
 
+            let newSnack = new Snack(snack, snack.attributes)
 
             render(snack)
         })
     })
 }
 
-
 function render(snack) {
-    
     const snackMarkup = `
-    <div class="container">
-    <div data-id=${snack.id}>
-    <h3>${snack.attributes.vending_machine.location} (${snack.attributes.vending_machine.id})</h3>
-    Snack Name: <p>${snack.attributes.name}</p>
-    Category: <p>${snack.attributes.category}</p>
-    Beginning Inventory: <p>${snack.attributes.beginning_inventory}</p>
-    Ending Inventory: <p>${snack.attributes.ending_inventory}</p>
-    Price: <p>${snack.attributes.price}</p>
-    Profit: <p>${snack.attributes.profit}</p>
-    <button data-id=${snack.id}>edit</button>
-    </div>
-    </div>
-    <br><br>`;
-
+        <div class="container">
+        <div data-id=${snack.id}>
+        <h3>${snack.attributes.vending_machine.location} (${snack.attributes.vending_machine.id})</h3>
+        Snack Name: <p>${snack.attributes.name}</p>
+        Category: <p>${snack.attributes.category}</p>
+        Beginning Inventory: <p>${snack.attributes.beginning_inventory}</p>
+        Ending Inventory: <p>${snack.attributes.ending_inventory}</p>
+        Price: <p>${snack.attributes.price}</p>
+        Profit: <p>${snack.attributes.profit}</p>
+        <button data-id=${snack.id}>edit</button>
+        </div>
+        </div>
+        <br><br>`;
     document.querySelector('#snack-container').innerHTML += snackMarkup
 } 
 
@@ -73,6 +76,7 @@ function postFetch(name, category, beginning_inventory, ending_inventory, price,
         const snackData = snack.data
 
         const snackMarkup = `
+        <div class="container">
         <div data-id=${snack.id}>
         <h3>${snackData.attributes.vending_machine.location} (${snackData.attributes.vending_machine.id})</h3>
         Snack Name: <p>${snackData.attributes.name}</p>
@@ -82,6 +86,7 @@ function postFetch(name, category, beginning_inventory, ending_inventory, price,
         Price: <p>${snackData.attributes.price}</p>
         Profit: <p>${snackData.attributes.profit}</p>
         <button data-id=${snackData.id}>edit</button>
+        </div>
         </div>
         <br><br>`;
     
