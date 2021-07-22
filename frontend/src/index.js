@@ -17,33 +17,14 @@ function getSnacks() {
     .then(response => response.json())
     .then(snacks => {
         snacks.data.forEach(snack => {
-            // render(snack)
-            // debugger
 
             let newSnack = new Snack(snack, snack.attributes)
 
-            render(snack)
+            document.querySelector('#snack-container').innerHTML += newSnack.renderSnackCard()
+
         })
     })
 }
-
-function render(snack) {
-    const snackMarkup = `
-        <div class="container">
-        <div data-id=${snack.id}>
-        <h3>${snack.attributes.vending_machine.location} (${snack.attributes.vending_machine.id})</h3>
-        Snack Name: <p>${snack.attributes.name}</p>
-        Category: <p>${snack.attributes.category}</p>
-        Beginning Inventory: <p>${snack.attributes.beginning_inventory}</p>
-        Ending Inventory: <p>${snack.attributes.ending_inventory}</p>
-        Price: <p>${snack.attributes.price}</p>
-        Profit: <p>${snack.attributes.profit}</p>
-        <button data-id=${snack.id}>edit</button>
-        </div>
-        </div>
-        <br><br>`;
-    document.querySelector('#snack-container').innerHTML += snackMarkup
-} 
 
 
 function createFormHandler(e) {
@@ -60,7 +41,6 @@ function createFormHandler(e) {
 }
 
 
-
 function postFetch(name, category, beginning_inventory, ending_inventory, price, profit, vending_machine_id) {
     const bodyData = {name, category, beginning_inventory, ending_inventory, price, profit, vending_machine_id}
     
@@ -75,22 +55,11 @@ function postFetch(name, category, beginning_inventory, ending_inventory, price,
     
         const snackData = snack.data
 
-        const snackMarkup = `
-        <div class="container">
-        <div data-id=${snack.id}>
-        <h3>${snackData.attributes.vending_machine.location} (${snackData.attributes.vending_machine.id})</h3>
-        Snack Name: <p>${snackData.attributes.name}</p>
-        Category: <p>${snackData.attributes.category}</p>
-        Beginning Inventory: <p>${snackData.attributes.beginning_inventory}</p>
-        Ending Inventory: <p>${snackData.attributes.ending_inventory}</p>
-        Price: <p>${snackData.attributes.price}</p>
-        Profit: <p>${snackData.attributes.profit}</p>
-        <button data-id=${snackData.id}>edit</button>
-        </div>
-        </div>
-        <br><br>`;
-    
-        document.querySelector('#snack-container').innerHTML += snackMarkup
+
+        let newSnack = new Snack(snackData, snackData.attributes)
+
+        document.querySelector('#snack-container').innerHTML += newSnack.renderSnackCard()
+
     }) 
 }
 
