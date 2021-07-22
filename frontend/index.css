@@ -1,12 +1,22 @@
 body {
     padding: 1rem;
+    background-color :rgb(250, 241, 244)
     }
-
 
 
 .container {
     column-count: 4;
     column-gap: 20px;
-    column-rule: 4px dotted rgb(79, 185, 227);
+    column-rule: 4px dotted rgb(227 79 205 / 51%);
     }
 
+
+.navbar-customclass {
+    background-color: rgba(253, 216, 240, 0.87);
+}
+
+.form-container {
+    column-count: 4;
+    column-gap: 20px;
+    column-rule: 4px dotted rgb(227 79 205 / 51%);
+}

@@ -9,11 +9,16 @@
 </head>
 <body>
 
-    
-    <div class="form-container">
+    <nav class="navbar navbar-expand-lg navbar-customclass">
+        <div class="mx-auto" style="width: 400px;">
+            <h1>Easy Vending</h1>
+        </div>
+    </nav>
+    <br>
 
+    <h3>Create A New Snack!</h3>
+    <div class="form-container">
         <form id="create-snack-form" style="">
-        <h3>Create A New Snack!</h3>
     
         <input id='input-name' type="text" name="name" value="" placeholder="Enter snack name" class="input-text">
         <br><br>
@@ -28,7 +33,8 @@
         <input id='input-profit' type="text" name="profit" value="" placeholder="Profit" class="input-text">
         <br><br>
     
-        <select id="vending_machines" name="vending_machines">
+    
+        <select id="vending_machines" name= "vending_machines">
             <option value="1">Hospital</option>
             <option value="2">Mechanic Shop</option>
             <option value="3">Office</option>
@@ -40,12 +46,14 @@
         <input id= 'create-button' type="submit" name="submit" value="Add Snack" class="submit">
         </form>
     
+
     </div>
 
-    
-
+    <br>
+    <br>
     <div id="snack-container">
     </div>
+
 
     <script src='src/snack.js'></script>
     <script src='src/index.js'></script>

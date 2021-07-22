@@ -32,7 +32,6 @@ class Snack {
             <br><br>`;
     } 
 
-
 }
 
 
